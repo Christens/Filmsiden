@@ -11,11 +11,15 @@
 </head>
 <body>
     <header>
-        <a href="/"><img src='{{url_for("static", filename="movieLogo.jpeg")}}' alt="" class="logo"></a>
-        <nav>
-            <a href="/sok">Søk</a>
-            <a href="/populaert">Populært nå</a>
-        </nav>
+        <div>
+            <a href="/"><img src='{{url_for("static", filename="movieLogo.jpeg")}}' alt="" class="logo"></a>
+        </div>
+        <div>
+            <nav>
+                <a href="/sok">Søk</a>
+                <a href="/populaert">Populært nå</a>
+            </nav>
+        </div>
     </header>
     <main>
         {% block main %}
