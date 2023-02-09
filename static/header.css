@@ -1,0 +1,10 @@
+header{
+    background-color: #EFCA08;
+    min-height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 10%;
+}
