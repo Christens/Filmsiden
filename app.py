@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from random import randint
 
 app = Flask(__name__)
 
@@ -6,7 +7,13 @@ from jsonapp import json_filmer
 filmer = json_filmer()
 
 from api import søk_etter_filmer
-liste = []
+søkeliste = []
+
+def lag_nummerliste():
+    nummerliste = []
+    for i in range(3):
+        nummerliste.append(randint(0,249))
+    return nummerliste
 
 @app.route("/")
 def rute_index():
@@ -17,11 +24,12 @@ def rute_sok():
     if request.method == "POST":
         svar = request.form["sok"]
         filmer = søk_etter_filmer(svar)
-        liste.clear()
+        søkeliste.clear()
         for film in filmer:
-            liste.append(film)
-    return render_template("sok.html", søkeliste = liste)
+            søkeliste.append(film)
+    return render_template("sok.html", søkeliste=søkeliste)
 
-@app.route("/populaert")
-def rute_populaer():
-    return render_template("populaert.html")
+@app.route("/anbefalt")
+def rute_anbefalt():
+    anbefalt_nummer = lag_nummerliste()
+    return render_template("anbefalt.html", filmer=filmer, anbefalt_nummer=anbefalt_nummer)

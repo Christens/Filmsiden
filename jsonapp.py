@@ -5,4 +5,3 @@ def json_filmer():
     filmer = json.load(fil)
     fil.close()
     return filmer
-

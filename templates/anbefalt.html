@@ -1,0 +1,15 @@
+{% extends "mal.html" %}
+{% block head %}
+    <title>Populært nå</title>
+    <link rel="stylesheet" href='{{url_for("static", filename="anbefalt.css")}}'>
+{% endblock %}
+{% block main %}
+    <section>
+        {% for nummer in anbefalt_nummer %}
+            <div>
+                <h1>{{filmer[nummer]["navn"]}}</h1>
+                <img src="{{filmer[nummer]['bilde']}}" alt="">
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
