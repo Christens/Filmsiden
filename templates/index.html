@@ -1,10 +1,14 @@
 {% extends "mal.html" %}
 {% block head %}
     <title>Hjem</title>
+    <link rel="stylesheet" href='{{url_for("static", filename="index.css")}}'>
 {% endblock %}
 
 {% block main %}
-    {% for film in filmer %}
-        <h1>{{film["navn"]}}</h1>
-    {% endfor %}
+    <div id="indexheader">
+        <div>
+            <h1>Filmsiden</h1>
+            <h2>Finn dine yndlingsfilmer</h2>
+        </div>
+    </div>
 {% endblock %}
