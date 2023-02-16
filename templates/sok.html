@@ -2,3 +2,16 @@
 {% block head %}
     <title>Søk</title>
 {% endblock %}
+{% block main %}
+    <form action="/sok" method="post">
+        <label for="gjoremaal">Søk etter film:</label>
+        <input type="text" name="sok">
+        <button type="submit">Send inn</button>
+    </form>
+    <section>
+        {% for film in søkeliste %}
+            <h1>{{film["Title"]}}</h1>
+            <img src={{film['Poster']}} alt="">
+        {% endfor %}
+    </section>
+{% endblock %}

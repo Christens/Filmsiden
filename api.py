@@ -1,10 +1,8 @@
 import requests as req
 
-def tilfeldig(n,søk):
+def søk_etter_filmer(søk):
     url = f"http://www.omdbapi.com/?i=tt3896198&apikey=16149be5&s={søk}"
     resultat = req.get(url, headers = {'User-Agent': 'Christen'})
     data = resultat.json()
-    print(data["Search"][n]["Title"])
-    return resultat
-
-tilfeldig(0, "")
+    svar = data["Search"]
+    return svar

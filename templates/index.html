@@ -11,4 +11,9 @@
             <h2>Finn dine yndlingsfilmer</h2>
         </div>
     </div>
+    <section>
+        {% for film in filmer %}
+            <h1>{{film["navn"]}}</h1>
+        {% endfor %}
+    </section>
 {% endblock %}
