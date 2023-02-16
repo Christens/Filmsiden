@@ -2,3 +2,15 @@ body{
     margin: 0;
     font-family: sans-serif;
 }
+.underheader{
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-bottom: solid 4px #204B57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    flex-direction: column;
+    margin-bottom: 20px;
+}

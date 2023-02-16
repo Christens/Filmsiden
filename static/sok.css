@@ -1,0 +1,30 @@
+.underheader{
+    background-color: #ff1b3c;
+}
+#sokefelt{
+    width: 500px;
+    height: 150%;
+    text-align: center;
+}
+.sokegrid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 95%;
+    gap: 2%;
+    margin: auto;
+    text-align: center;
+}
+.sokegrid img{
+    width: 90%;
+    margin: auto
+}
+.sokh1div{
+    min-height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.innerSokegrid{
+    background-color: #ff1b3c;
+    border: solid 4px #204B57;
+}

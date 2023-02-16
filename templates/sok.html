@@ -1,17 +1,23 @@
 {% extends "mal.html" %}
 {% block head %}
     <title>Søk</title>
+    <link rel="stylesheet" href='{{url_for("static", filename="sok.css")}}'>
 {% endblock %}
 {% block main %}
-    <form action="/sok" method="post">
-        <label for="gjoremaal">Søk etter film:</label>
-        <input type="text" name="sok">
-        <button type="submit">Send inn</button>
-    </form>
-    <section>
+    <div class="underheader">
+        <h2>Søk etter dine yndlingsfilmer:</h2>
+        <form action="/sok" method="post">
+            <input id="sokefelt" type="text" name="sok" placeholder="Søk">
+        </form>
+    </div>
+    <section class="sokegrid">
         {% for film in søkeliste %}
-            <h1>{{film["Title"]}}</h1>
-            <img src={{film['Poster']}} alt="">
+            <div class="innerSokegrid">
+                <div class="sokh1div">
+                    <h1>{{film["Title"]}}</h1>
+                </div>
+                <img src={{film['Poster']}} alt="">
+            </div>
         {% endfor %}
     </section>
 {% endblock %}
