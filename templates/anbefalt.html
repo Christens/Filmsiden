@@ -1,6 +1,6 @@
 {% extends "mal.html" %}
 {% block head %}
-    <title>Populært nå</title>
+    <title>Anbefalte filmer</title>
     <link rel="stylesheet" href='{{url_for("static", filename="anbefalt.css")}}'>
 {% endblock %}
 {% block main %}
@@ -12,4 +12,5 @@
             </div>
         {% endfor %}
     </section>
+    <a href="/anbefalt">Ny filmer</a>
 {% endblock %}

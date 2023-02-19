@@ -9,9 +9,13 @@
         <h1>Filmsiden</h1>
         <h2>Finn dine yndlingsfilmer</h2>
     </div>
-    <section>
-        {% for film in filmer %}
-            <h1>{{film["navn"]}}</h1>
+    <section id="favorittSection">
+        {% for nummer in tilfeldige_nummer %}
+            <div>
+                <h1>{{filmer[nummer]["navn"]}}</h1>
+                <img class="indexPoster" src="{{filmer[nummer]['bilde']}}" alt="">
+                <img class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt="">
+            </div>
         {% endfor %}
     </section>
 {% endblock %}
