@@ -6,7 +6,11 @@ class Favoritt:
     def øk_poeng(self):
         self._poeng += 1
 
+    def hent_poeng(self):
+        return self._poeng
 
+
+'''
 filmer = 0
 #Kode til app.py osm forhåpentligvis kan få favorittsystem til å fungere
 
@@ -19,3 +23,4 @@ def øk_favorittpoeng(filmnavn): #tar inn navn som skal komme ved å trykke på 
     for film in favoritter:
         if film.self._navn == filmnavn:
             film.øk_poeng()
+'''

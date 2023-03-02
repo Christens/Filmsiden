@@ -27,7 +27,11 @@
 .bakgrunnRoed{
     background-color: #ff1b3c;
 }
-#favorittliste h2{
+.favorittliste h2{
     width: 60%;
     margin: auto;
+}
+#toppliste{
+    border-top: solid 4px #204B57;
+    margin-top: 2vh;
 }

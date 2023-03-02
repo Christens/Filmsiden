@@ -1,6 +1,6 @@
 {% extends "mal.html" %}
 {% block head %}
-    <title>Hjem</title>
+    <title>Filmsiden Hjem</title>
     <link rel="stylesheet" href='{{url_for("static", filename="index.css")}}'>
 {% endblock %}
 
@@ -9,7 +9,7 @@
         <h1>Filmsiden</h1>
         <h2>Finn dine yndlingsfilmer</h2>
     </div>
-    <div class="underheader bakgrunnRoed" id="favorittliste">
+    <div class="underheader bakgrunnRoed favorittliste">
         <h2>Under kan du velge hvilken av de to filmene du liker best og til slutte finne din yndlingsfilm blant top 250 filmer hos IMDB</h2>
     </div>
     <section id="favorittSection">
@@ -17,8 +17,27 @@
             <div>
                 <h1>{{filmer[nummer]["navn"]}}</h1>
                 <img class="indexPoster" src="{{filmer[nummer]['bilde']}}" alt="">
-                <img class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt="">
+                {% if nummer == tilfeldige_nummer[0] %}
+                    <p>
+                        Poeng: {{indexFavorittpoeng[0]}}
+                    </p>
+                {% elif nummer == tilfeldige_nummer[1] %}
+                    <p>
+                        Poeng: {{indexFavorittpoeng[1]}}
+                    </p>
+                {% endif %}
+                <img onclick="øk_favorittpoeng('{{filmer['nummer']['navn']}}')" class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt="">
             </div>
         {% endfor %}
     </section>
+    <div class="underheader bakgrunnRoed favorittliste" id="toppliste">
+        <h2>Din toppliste:</h2>
+    </div>
+    <script>
+        function øk_favorittpoeng(filmnavn){
+            console.log("økte poeng")
+            console.log(filmnavn)
+            const response = fetch("/øk_favorittpoeng" + filmnavn, {method:"POST"})
+        }
+    </script>
 {% endblock %}

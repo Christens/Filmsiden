@@ -4,7 +4,7 @@
     <link rel="stylesheet" href='{{url_for("static", filename="anbefalt.css")}}'>
 {% endblock %}
 {% block main %}
-    <section>
+    <section class="anbefaltGrid">
         {% for nummer in anbefalt_nummer %}
             <div>
                 <h1>{{filmer[nummer]["navn"]}}</h1>
@@ -12,5 +12,8 @@
             </div>
         {% endfor %}
     </section>
-    <a href="/anbefalt">Ny filmer</a>
+    <section id="nyeFilmer">
+        <a href="/anbefalt"><img src='{{url_for("static", filename="refreshknapp.png")}}' alt=""></a>
+    </section>
+
 {% endblock %}
