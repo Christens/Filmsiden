@@ -1,5 +1,6 @@
 .underheader{
     background-color: #1cb2a6;
+    margin: 0;
 }
 #favorittSection{
     display: flex;
@@ -22,4 +23,11 @@
 .knappIndex{
     background-color: white;
     border: none;
+}
+.bakgrunnRoed{
+    background-color: #ff1b3c;
+}
+#favorittliste h2{
+    width: 60%;
+    margin: auto;
 }

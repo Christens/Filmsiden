@@ -8,7 +8,7 @@ class Favoritt:
 
 
 filmer = 0
-#Kode til app.py osm frohåpentligvis kan få favorittsystem til å fungere
+#Kode til app.py osm forhåpentligvis kan få favorittsystem til å fungere
 
 favoritter = [] #lager en liste med objekter av alle filmene fra imdb.json
 for film in filmer:

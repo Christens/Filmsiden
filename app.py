@@ -21,8 +21,6 @@ def tilfeldig_2nr():
         nummerliste.append(randint(0,249))
     return nummerliste
 
-tilfeldig = tilfeldig_2nr()
-
 @app.route("/")
 def rute_index():
     tilfeldig = tilfeldig_2nr()
