@@ -29,8 +29,9 @@ for film in filmer:
 
 def øk_favorittpoeng(filmnavn):
     for film in favoritter:
-        if film.self._navn == filmnavn:
+        if film._navn == filmnavn:
             film.øk_poeng()
+            print(film.hent_poeng())
 
 indexFavorittpoeng = []
 def index_Favorittpoeng(nummerliste, favoritter=favoritter):
@@ -39,13 +40,23 @@ def index_Favorittpoeng(nummerliste, favoritter=favoritter):
             if favoritter.index(film) == nummer:
                 indexFavorittpoeng.append(film.hent_poeng())
 
+indexFavoritter = []
+def oppdater_favorittliste():
+    for film in favoritter:
+        if film.hent_poeng() > 0:
+            ny_liste = []
+            ny_liste.append(film.hent_navn())
+            ny_liste.append(film.hent_poeng())
+            indexFavoritter.append(ny_liste)
+
 @app.route("/")
 def rute_index():
     tilfeldig = tilfeldig_2nr()
     indexFavorittpoeng.clear()
     index_Favorittpoeng(tilfeldig)
-    print(indexFavorittpoeng)
-    return render_template("index.html", filmer=filmer, tilfeldige_nummer=tilfeldig, indexFavorittpoeng=indexFavorittpoeng)
+    indexFavoritter.clear()
+    oppdater_favorittliste()
+    return render_template("index.html", filmer=filmer, tilfeldige_nummer=tilfeldig, indexFavorittpoeng=indexFavorittpoeng, favoritter=indexFavoritter)
 
 @app.route("/sok", methods=["GET", "POST"])
 def rute_sok():
@@ -64,6 +75,7 @@ def rute_anbefalt():
 
 @app.route("/øk-favorittpoeng/<filmnavn>", methods=["POST"])
 def rute_øk_faovrittpoeng(filmnavn):
+    print("hei")
     øk_favorittpoeng(filmnavn)
     print(filmnavn)
     return rute_index()

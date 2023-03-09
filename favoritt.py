@@ -8,6 +8,9 @@ class Favoritt:
 
     def hent_poeng(self):
         return self._poeng
+    
+    def hent_navn(self):
+        return self._navn
 
 
 '''

@@ -26,18 +26,22 @@
                         Poeng: {{indexFavorittpoeng[1]}}
                     </p>
                 {% endif %}
-                <img onclick="øk_favorittpoeng('{{filmer['nummer']['navn']}}')" class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt="">
+                <form action="/øk-favorittpoeng/{{filmer[nummer]['navn']}}" method="POST">
+                    <button type="submit">
+                        <img class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt=""> 
+                    </button>
+                </form>
             </div>
         {% endfor %}
     </section>
     <div class="underheader bakgrunnRoed favorittliste" id="toppliste">
         <h2>Din toppliste:</h2>
     </div>
-    <script>
-        function øk_favorittpoeng(filmnavn){
-            console.log("økte poeng")
-            console.log(filmnavn)
-            const response = fetch("/øk_favorittpoeng" + filmnavn, {method:"POST"})
-        }
-    </script>
+    <section>
+        {% for film in favoritter %}
+            <div>
+                <h1>{{film[0]}} Poeng: {{film[1]}}</h1>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}
