@@ -12,14 +12,18 @@ søkeliste = []
 
 def tilfeldig_3nr():
     nummerliste = []
-    for i in range(3):
-        nummerliste.append(randint(0,249))
+    while len(nummerliste) < 3:
+        tall = randint(0, 249)
+        if tall not in nummerliste:
+            nummerliste.append(tall)
     return nummerliste
 
 def tilfeldig_2nr():
     nummerliste = []
-    for i in range(2):
-        nummerliste.append(randint(0,249))
+    while len(nummerliste) < 2:
+        tall = randint(0, 249)
+        if tall not in nummerliste:
+            nummerliste.append(tall)
     return nummerliste
 
 favoritter = []
@@ -31,7 +35,6 @@ def øk_favorittpoeng(filmnavn):
     for film in favoritter:
         if film._navn == filmnavn:
             film.øk_poeng()
-            print(film.hent_poeng())
 
 indexFavorittpoeng = []
 def index_Favorittpoeng(nummerliste, favoritter=favoritter):
@@ -49,6 +52,20 @@ def oppdater_favorittliste():
             ny_liste.append(film.hent_poeng())
             indexFavoritter.append(ny_liste)
 
+def sorter():
+    global indexFavoritter
+    indexFavoritterS = []
+    minst = 1
+    størst = 0
+    for film in indexFavoritter:
+        if film[1] > størst:
+            størst = film[1]
+    for i in range(minst,størst+1):
+        for film in indexFavoritter:
+            if film[1] == i:
+                indexFavoritterS.insert(0,film)
+    return indexFavoritterS
+
 @app.route("/")
 def rute_index():
     tilfeldig = tilfeldig_2nr()
@@ -56,17 +73,21 @@ def rute_index():
     index_Favorittpoeng(tilfeldig)
     indexFavoritter.clear()
     oppdater_favorittliste()
-    return render_template("index.html", filmer=filmer, tilfeldige_nummer=tilfeldig, indexFavorittpoeng=indexFavorittpoeng, favoritter=indexFavoritter)
+    favoritterS = sorter()
+    return render_template("index.html", filmer=filmer, tilfeldige_nummer=tilfeldig, indexFavorittpoeng=indexFavorittpoeng, favoritter=favoritterS)
 
 @app.route("/sok", methods=["GET", "POST"])
 def rute_sok():
-    if request.method == "POST":
-        svar = request.form["sok"]
-        filmer = søk_etter_filmer(svar)
-        søkeliste.clear()
-        for film in filmer:
-            søkeliste.append(film)
-    return render_template("sok.html", søkeliste=søkeliste)
+    try:
+        if request.method == "POST":
+            svar = request.form["sok"]
+            filmer = søk_etter_filmer(svar)
+            søkeliste.clear()
+            for film in filmer:
+                søkeliste.append(film)
+        return render_template("sok.html", søkeliste=søkeliste)
+    except:
+        return render_template("error.html")
 
 @app.route("/anbefalt")
 def rute_anbefalt():
@@ -75,7 +96,7 @@ def rute_anbefalt():
 
 @app.route("/øk-favorittpoeng/<filmnavn>", methods=["POST"])
 def rute_øk_faovrittpoeng(filmnavn):
-    print("hei")
     øk_favorittpoeng(filmnavn)
-    print(filmnavn)
     return rute_index()
+
+app.run(debug=True)

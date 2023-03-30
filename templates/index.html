@@ -10,7 +10,7 @@
         <h2>Finn dine yndlingsfilmer</h2>
     </div>
     <div class="underheader bakgrunnRoed favorittliste">
-        <h2>Under kan du velge hvilken av de to filmene du liker best og til slutte finne din yndlingsfilm blant top 250 filmer hos IMDB</h2>
+        <h2>Under kan du velge hvilken av de to filmene du liker best og til slutt finne din yndlingsfilm blant top 250 filmer hos IMDB</h2>
     </div>
     <section id="favorittSection">
         {% for nummer in tilfeldige_nummer %}
@@ -27,7 +27,7 @@
                     </p>
                 {% endif %}
                 <form action="/øk-favorittpoeng/{{filmer[nummer]['navn']}}" method="POST">
-                    <button type="submit">
+                    <button type="submit" class="knapp">
                         <img class="okPoengPil" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Eo_circle_green_arrow-up.svg/1024px-Eo_circle_green_arrow-up.svg.png" alt=""> 
                     </button>
                 </form>

@@ -11,6 +11,9 @@ class Favoritt:
     
     def hent_navn(self):
         return self._navn
+    
+    def __lt__(self, other):
+        return self._poeng < other._poeng
 
 
 '''
