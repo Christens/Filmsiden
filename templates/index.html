@@ -37,10 +37,11 @@
     <div class="underheader bakgrunnRoed favorittliste" id="toppliste">
         <h2>Din toppliste:</h2>
     </div>
-    <section>
+    <section class="toppliste">
         {% for film in favoritter %}
             <div>
-                <h1>{{film[0]}} Poeng: {{film[1]}}</h1>
+                <h2>{{film[0]}}</h2>
+                <p>Poeng: {{film[1]}}</p>
             </div>
         {% endfor %}
     </section>

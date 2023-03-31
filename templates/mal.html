@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='{{url_for("static", filename="header.css")}}'>
     <link rel="stylesheet" href='{{url_for("static", filename="style.css")}}'>
+    <link rel="stylesheet" href='{{url_for("static", filename="footer.css")}}'>
     {% block head %}
     {% endblock %}
 </head>
@@ -27,5 +28,14 @@
     </main>
     {% block script %}
     {% endblock %}
+    <footer>
+        <div>
+            <a href="/"><img src='{{url_for("static", filename="movieLogo.jpeg")}}' alt="" class="logoFooter"></a>
+        </div>
+        <div>
+            <h1>Filmsiden</h1>
+        </div>
+        <div></div>
+    </footer>
 </body>
 </html>

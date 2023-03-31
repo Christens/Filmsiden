@@ -44,3 +44,12 @@
 	cursor: pointer;
 	outline: inherit;
 }
+.toppliste{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.toppliste div{
+    text-align: center;
+}

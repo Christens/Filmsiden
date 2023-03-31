@@ -1,19 +1,14 @@
 # Filmsiden
 
-# En side som representerer filmer fra IMDB topp 250
+# En side som representerer filmer fra IMDB topp 250 og TMDBs api
 
-## Det skal være mulig å søke på filmer via:
-- Navn
-- Sjanger
-- Regissør
-- Skuespillere
+## Søkefunksjon
+Det kan søkes etter filmer fra TMDBs api
 
-## Det skal være mulig å se hvilke filmer som er populære i dag
+## Anbefalt
+Bruekren kan se anbefalte filmer fra IMDBs topp 250 liste
 
-#### Skru på dbug mode
+## Ratingsystem
+På hjemmesiden kan brukeren lage sin egen toppliste fra IMDBs topp 250 liste  
+Ved å trykke på knappen (pil opp), øker filmens poeng med 1. Deretter rangeres filmene ut ifra gitt poeng
 
-.venv/bin/activate
-export FLASK_DEBUG=True
-flask run
-
-.venv/bin/activate;export FLASK_DEBUG=True;flask run

@@ -1,0 +1,17 @@
+footer{
+    background-color: #EFCA08;
+    min-height: 15vh;
+    align-items: center;
+    border-top: solid 4px #204B57;
+    display: flex;
+}
+footer div{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logoFooter{
+    width: 18%;
+    margin-left: 3%;
+}

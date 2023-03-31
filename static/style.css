@@ -14,3 +14,6 @@ body{
     flex-direction: column;
     margin-bottom: 20px;
 }
+main{
+    min-height: 70vh;
+}
